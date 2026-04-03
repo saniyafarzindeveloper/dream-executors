@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button";
+import MainHero from "@/components/landing-page/MainHero";
 
 const Page = () => {
   return <div className="">
-    <Button>
-      Hello
-    </Button>
+   <MainHero />
+   <MainHero />
   </div>;
 };
 

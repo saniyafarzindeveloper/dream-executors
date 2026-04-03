@@ -2,7 +2,13 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+/* Color Palette
+1. Grey - #F7F7F7
+2. Yellow - #FFB22C
+3. Brown - #854836
+4. Black - #000000 */
+
+/* @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -127,4 +133,4 @@
   html {
     @apply font-sans;
   }
-}
+} */
