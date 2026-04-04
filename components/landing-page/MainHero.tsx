@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function MainHero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+   <section className="relative h-screen w-full overflow-hidden rounded-b-[150px]">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -52,7 +52,7 @@ export default function MainHero() {
         <div className="mt-10">
           <Button
             size="lg"
-            className="bg-white text-black hover:bg-white/90
+            className="bg-[#FFB22C] text-black hover:bg-white/90
                        px-6 py-6 text-[16px] rounded-md
                        flex items-center gap-2 shadow-md"
           >
