@@ -5,9 +5,20 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
-const navItems = ["Home", "About", "Projects", "Contact Us"];
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact Us", href: "/contact" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,10 +46,10 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#F7F7F7] shadow-sm" : "bg-transparent"
+        scrolled ? "bg-[#f1f1f1] shadow-sm" : "bg-transparent"
       }`}
     >
-    <div className="relative mt-6 max-w-[1200px] mx-auto flex items-center justify-between px-6 py-5">
+      <div className="relative mt-6 max-w-[1200px] mx-auto flex items-center justify-between px-6 py-5">
         {/* Logo */}
         <h1
           className={`flex items-center font-semibold tracking-[-2px] transition-colors duration-300 ${
@@ -49,7 +60,7 @@ export default function Navbar() {
         </h1>
 
         {/* Desktop Nav */}
-       <nav className="hidden min-[1024px]:flex items-center absolute left-1/2 -translate-x-1/2">
+        <nav className="hidden min-[1024px]:flex items-center absolute left-1/2 -translate-x-1/2">
           <div
             className={`flex items-center gap-8 px-8 py-[10px] rounded-full transition-all duration-300 ${
               scrolled
@@ -59,15 +70,15 @@ export default function Navbar() {
           >
             {navItems.map((item) => (
               <Link
-                key={item}
-                href="#"
+                key={item.name}
+                href={item.href}
                 className={`group relative transition-colors duration-200 ${
                   scrolled
                     ? "text-gray-700 hover:text-black"
                     : "text-white/90 hover:text-white"
                 } text-[16px] md:text-[17px] font-medium`}
               >
-                {item}
+                {item.name}
 
                 {/* Animated underline */}
                 <span
@@ -114,6 +125,9 @@ export default function Navbar() {
               className="w-full h-auto px-6 pb-6 pt-4
              bg-white shadow-lg border-b"
             >
+              <VisuallyHidden>
+                <SheetTitle>Navigation Menu</SheetTitle>
+              </VisuallyHidden>
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-[20px] font-bold text-[#FFB22C]">
@@ -124,8 +138,12 @@ export default function Navbar() {
               {/* Nav Links */}
               <div className="flex flex-col gap-5 text-[18px] text-gray-800">
                 {navItems.map((item) => (
-                  <Link key={item} href="#">
-                    {item}
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.name}
                   </Link>
                 ))}
               </div>
